@@ -1,4 +1,4 @@
-{% set version = '1.0.0' %}
+{% set version = "1.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/SecretsProvider_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SecretsProvider/SecretsProvider_{{ version }}.tar.gz
-  sha256: 035e1d5a2d91ae42dc8485011ed69dfc0b9d7827a6f7c75342c54de9dabe43b5
+  sha256: f978dcacd20df73cba1713acd3d6b3498ffe97813f436795a74b8fa688fabb19
 
 build:
   number: 0
@@ -28,8 +28,10 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-getpass
   run:
     - r-base
+    - r-getpass
 
 test:
   commands:
@@ -39,9 +41,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=SecretsProvider
   license: Apache-2.0
-  summary: Facilitates secret management by storing credentials in a dedicated file, keeping
-    them out of your code base. The secrets are stored without encryption. This package
-    is compatible with secrets stored by the 'SecretsProvider' 'Python' package <https://pypi.org/project/SecretsProvider/>.
+  summary: Facilitates secret management by storing credentials in a dedicated file, keeping them out of your code base. The secrets are stored without encryption. This package is compatible with secrets stored by the 'SecretsProvider' 'Python' package <https://pypi.org/project/SecretsProvider/>.
   license_family: APACHE
   license_file: LICENSE.txt
 
