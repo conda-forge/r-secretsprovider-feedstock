@@ -28,8 +28,10 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-getpass
   run:
     - r-base
+    - r-getpass
 
 test:
   commands:
